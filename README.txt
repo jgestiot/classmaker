@@ -94,7 +94,9 @@ func save_data():
 	return data
 -----------------------------------------------------------------------
 
-The feature "exists" is built in and it is always part of the core for every class created by ClassMaker. It creates an _init() function with the line: data = {}, which is creating the dictionary that will hold all variables for the class. This is useful for saving and later loading objects. See the can_be_saved feature.
+Please note that ClassMaker produces the script, but it also produces a *.feature file that has all the features included in the script as well as a *.functions file with the list of all functions in the class. With the above class, the three files produced were port.gd, port.features and port.functions.
+
+The feature "exists" (mentioned above) is built in and it is always part of the core for every class created by ClassMaker. It creates an _init() function with the line: data = {}, which is creating the dictionary that will hold all variables for the class. This is useful for saving and later loading objects. See the can_be_saved feature.
 
 Feature files
 -------------
@@ -132,3 +134,17 @@ func my_function()->void: create
 	var code = true			# this comment will be preserved
 	# this comment will be stripped
 	code = false
+
+
+Tricks you will need to use
+---------------------------
+
+Using ClassMaker will require more attentive programming in the way you plan and write your code, not less. Let me give you an example from the features included with ClassMaker.
+
+In the can_move feature, you would expect move() to just move the object then update the position. However this would not work when you start adding features such as move_scaled and move_bounded.
+
+Instead of performing the calculations, move() calls basic_move(), which performs the x,y calculations. When later move_scaled changes the way the x,y position is calculated, there is only a need to overwrite basic_move() and nothing else. When move_bounded overwrites the whole move() function, it does not need to be concerned about the way basic calculations are done. It just blindly calls basic_move() knowing that it will do its job correctly.
+
+As you can see, if you want to design large classes using ClassMaker, you will need to give it plenty of thoughts. Fortunately, every feature being isolated, it is not too hard to jump in and change the feature's code. A feature should never have 300 lines of code not matter how complex your application may be. Remember that a feature needs to have a single area of responsibility. has_id only deals with providing the object with an id. It should do nothing else.
+
+What makes ClassMaker a useful tool is its ability to combine dozens of features to create a class.

@@ -1,0 +1,39 @@
+func _init()->void: append
+	data.min_x = 0
+	data.min_y = 0
+	data.max_x = 1200
+	data.max_y = 600
+
+func move()->void: create
+	var flag_x = false
+	var flag_y = false
+
+	basic_move() # performs the basic move calculation
+
+	if(data.x <= data.min_x): # check if outside the x boundary
+		data.x = data.min_x
+		flag_x = true
+	if(data.y <= data.min_y): # check if outside the y boundary
+		data.y = data.min_y
+		flag_y = true
+	if(data.x >= data.max_x): # check if we overrun the y boundary
+		data.x = data.max_x
+		flag_x = true
+	if(data.y >= data.max_y): # check if we overrun the y boundary
+		data.y = data.max_y
+		flag_y = true
+	if(flag_x):
+		out_of_bounds_x()
+		return
+	if(flag_y):
+		out_of_bounds_y()
+		return
+	update_position() # only update position on screen if we are within bounds
+
+# Called when the object is out of bounds in the x direction.
+func out_of_bounds_x()->void: create
+	pass
+
+# Called when the object is out of bounds in the y direction.
+func out_of_bounds_y()->void: create
+	pass

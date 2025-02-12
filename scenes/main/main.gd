@@ -76,10 +76,11 @@ func create_core_code():
 	functions["_init"].comments = []
 	functions["_init"].signature = "_init()->void:"
 	functions["_init"].data = []
-	functions["_init"].data.append("	data = {}")
+	functions["_init"].data.append("	data = {}			# the data dict where all variables are kept")
 	return true
 
 func output_all():
+	var function_list = FileAccess.open("user://scripts/"+scriptname+".functions", FileAccess.WRITE)
 	var feature_list = FileAccess.open("user://scripts/"+scriptname+".features", FileAccess.WRITE)
 	var handle = FileAccess.open("user://scripts/"+scriptname+".gd", FileAccess.WRITE)
 	if(handle == null):
@@ -103,6 +104,7 @@ func output_all():
 			next = next.left(space)
 			if(debug):
 				print("Processing ferature "+next)
+			feature_list.store_line(next)
 			process_feature(next)
 		else:
 			print("Error in line "+next)
@@ -110,7 +112,7 @@ func output_all():
 	for z in functions:
 		if(debug):
 			print("Outputting "+z)
-		feature_list.store_line(z)
+		function_list.store_line(z)
 		for k in functions[z].comments: # output all comments that may have been collected
 			handle.store_line(k)
 		handle.store_line("func "+functions[z].signature)
@@ -120,6 +122,8 @@ func output_all():
 
 	handle.close() # flushes all output
 	feature_list.close()
+	function_list.close()
+	print("Done!")
 
 func _on_generate_btn_pressed() -> void:
 	if(create_core_code()):
@@ -160,6 +164,9 @@ func process_feature(name):
 			line = line.split(" ",false)
 			if(debug):
 				print(line)
+			if(line.size() != 3):
+				print("There is an error in line: "+str(line[1])+" (feature: "+name+") Missing keyword?")
+				return
 			idx = line[1].findn("(")
 			current = line[1].left(idx)
 			if(debug):

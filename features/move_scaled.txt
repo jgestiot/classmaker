@@ -1,3 +1,5 @@
-func move(): create
+# when scale is present, the move takes into consideration both the
+# physical and time scales.
+func basic_move(): create
 	data.x += data.xdir * data.pixels_per_km * data.time_scale * data.speed
 	data.y += data.ydir * data.pixels_per_km * data.time_scale * data.speed

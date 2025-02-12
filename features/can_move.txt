@@ -16,9 +16,12 @@ func set_pos(x,y): create
 func set_speed(s): create
 	data.speed = s
 
-func move(): create
+func basic_move()->void: create
 	data.x += data.xdir * data.speed
 	data.y += data.ydir * data.speed
+	
+func move(): create
+	basic_move()
 	update_position()
 
 func goto(x,y)->void: create
