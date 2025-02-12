@@ -1,0 +1,11 @@
+func _init()->void: append
+	data.type = 0		# The type of object we are
+
+# sets the type for the object which is likely to be a constant
+# like TYPE_CAR or TYPE_BOAT.
+func set_type(type:int)->void: create
+	data.type = type
+
+# returns the object's type
+func get_type()->int: create
+	return data.type

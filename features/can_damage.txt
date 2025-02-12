@@ -1,0 +1,20 @@
+func _init()->void: append
+	data.damage = 0.0			# A value representing a %
+	data.damage_threshold = 80	# The % of damage beyond which the object is considered destroyed
+
+# causes damage to the object.
+# If the damage reaches the threshold then the object is considered destroyed
+# and the hook function has_been_destroyed() is called
+func cause_damage(amount:float)->void: create
+	data.damage+=amount
+	if(data.damage >= data.damage_threshold):
+		has_been_destroyed()
+		data.damage = data.damage_threshold
+
+func repair(amount:float)->void: create
+	data.damage-=amount
+	if(data.damage < 0):
+		data.damage = 0
+
+func has_been_destroyed()->void: create
+	pass

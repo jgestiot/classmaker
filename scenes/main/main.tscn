@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://sh4udyewqxdq"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_f7uvf"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_f7uvf")
+
+[node name="script_label" type="Label" parent="."]
+offset_left = 145.0
+offset_top = 45.0
+offset_right = 254.0
+offset_bottom = 68.0
+text = "Script name:"
+horizontal_alignment = 2
+
+[node name="scriptname" type="LineEdit" parent="."]
+offset_left = 266.0
+offset_top = 38.0
+offset_right = 504.0
+offset_bottom = 69.0
+text = "test"
+
+[node name="class_label" type="Label" parent="."]
+offset_left = 385.0
+offset_top = 94.0
+offset_right = 494.0
+offset_bottom = 117.0
+text = "Class name:"
+horizontal_alignment = 2
+
+[node name="classname" type="LineEdit" parent="."]
+offset_left = 506.0
+offset_top = 87.0
+offset_right = 744.0
+offset_bottom = 118.0
+text = "my_class"
+
+[node name="extend_label" type="Label" parent="."]
+offset_left = 688.0
+offset_top = 44.0
+offset_right = 797.0
+offset_bottom = 67.0
+text = "Extending:"
+horizontal_alignment = 2
+
+[node name="extending" type="LineEdit" parent="."]
+offset_left = 809.0
+offset_top = 37.0
+offset_right = 1047.0
+offset_bottom = 68.0
+text = "Node2D"
+
+[node name="generate_btn" type="Button" parent="."]
+offset_left = 510.0
+offset_top = 610.0
+offset_right = 590.0
+offset_bottom = 641.0
+text = "Generate"
+
+[node name="list" type="ItemList" parent="."]
+offset_left = 8.0
+offset_top = 166.0
+offset_right = 1140.0
+offset_bottom = 603.0
+select_mode = 1
+
+[node name="features_label" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 143.0
+offset_right = 1135.0
+offset_bottom = 166.0
+text = "List of available features loaded from user://features/feature_list.txt"
+horizontal_alignment = 1
+
+[connection signal="text_changed" from="scriptname" to="." method="_on_scriptname_text_changed"]
+[connection signal="text_changed" from="classname" to="." method="_on_classname_text_changed"]
+[connection signal="text_changed" from="extending" to="." method="_on_extending_text_changed"]
+[connection signal="pressed" from="generate_btn" to="." method="_on_generate_btn_pressed"]

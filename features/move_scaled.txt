@@ -1,0 +1,3 @@
+func move(): create
+	data.x += data.xdir * data.pixels_per_km * data.time_scale * data.speed
+	data.y += data.ydir * data.pixels_per_km * data.time_scale * data.speed

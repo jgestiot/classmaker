@@ -1,0 +1,8 @@
+# loads a previously saved data dictionary
+func load_data(saved_data)->void: create
+	data = saved_data
+
+# returns the class data to the calling function for saving
+# later the data can be restored with load_data()
+func save_data(): create
+	return data

@@ -1,0 +1,15 @@
+func _init()->void: append
+	data.time_scale = 0.5
+	data.pixels_per_km = 10
+
+func set_time_scale(amount:float)->void: create
+	data.time_scale = amount
+
+func get_time_scale()->float: create
+	return data.time_scale
+
+func set_pixels_per_km(amount:float)->void: create
+	data.pixels_per_km = amount
+
+func get_pixels_per_km()->float: create
+	return data.pixels_per_km

@@ -1,0 +1,58 @@
+func _init()->void: append
+	data.xdir = 0		# x direction for the movement
+	data.ydir = 0		# y direction for the movement
+	data.speed = 0		# number of pixels moved each time
+	data.reached = false # indicates if destination is reached
+
+func set_direction(x,y): create
+	data.xdir = x
+	data.ydir = y
+
+func set_pos(x,y): create
+	data.x = x
+	data.y = y
+	update_position()
+
+func set_speed(s): create
+	data.speed = s
+
+func move(): create
+	data.x += data.xdir * data.speed
+	data.y += data.ydir * data.speed
+	update_position()
+
+func goto(x,y)->void: create
+	if(data.x < x):
+		data.xdir = 1
+	elif data.x > x:
+		data.xdir = -1
+	else:
+		data.xdir = 0
+	if(data.y < y):
+		data.ydir = 1
+	elif data.y > y:
+		data.ydir = -1
+	else:
+		data.ydir = 0
+		if(data.xdir == 0 && data.ydir == 0):
+			data.speed = 0
+			data.reached = true
+			reached_destination()
+		else:
+			data.reached = false
+			move()
+
+func is_moving(): create
+	return data.speed != 0
+
+func stop(): create
+	data.xdir = 0
+	data.ydir = 0
+	data.speed = 0
+	has_stopped()
+
+func has_stopped(): create
+	pass
+
+func reached_destination(): create
+	pass

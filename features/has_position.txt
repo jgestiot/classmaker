@@ -1,0 +1,9 @@
+func _init()->void: append
+	data.x = 0			# current x position for the object
+	data.y = 0			# current y position for the object
+
+# this function is meant to update the 2D object position on
+# screen once its x,y position has been calculated.
+func update_position(): create
+	position.x = data.x
+	position.y = data.y

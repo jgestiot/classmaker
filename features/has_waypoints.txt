@@ -1,0 +1,18 @@
+func _init()->void: append
+	data.waypoints = []			# Array of Vector2
+
+func set_waypoints(ar:Array)->void: create
+	data.waypoints = ar
+
+func getnext_waypoint()->Vector2: create
+	return data.waypoints
+
+func append_waypoint(wayp:Vector2): create
+	data.waypoints.append(wayp)
+
+func goto_waypoint()->void: create
+	if data.waypoints == null:
+		return
+	if data.waypoints.size() == 0:
+		return
+	goto(data.waypoints[0].x,data.waypoints[0].y)

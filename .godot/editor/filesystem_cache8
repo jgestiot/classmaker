@@ -1,0 +1,13 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1739231382
+icon.svg::CompressedTexture2D::3674120789752947087::1738966206::1738966211::1::::<><>::
+README.md::TextFile::-1::1739012889::0::1::::<><>::
+test.gd::GDScript::-1::1738969539::0::1::::<>RefCounted<>::
+::res://scenes/::1739146392
+::res://scenes/main/::1739180124
+main.gd::GDScript::-1::1739166871::0::1::::<>Node2D<>::
+main.tscn::PackedScene::1279646533288479794::1739180124::0::1::::<><>::res://scenes/main/main.gd
+::res://scenes/test/::1739180124
+test.gd::GDScript::-1::1739180124::0::1::::my_class<>Node2D<>::
+test.tscn::PackedScene::8900130299347276555::1739180124::0::1::::<><>::res://scenes/test/test.gd<>uid://fmhef5p72sur::::res://scenes/test/vehicle.tscn
+vehicle.tscn::PackedScene::376149223050124089::1739166742::0::1::::<><>::res://scripts/test.gd<>uid://bsl1h55tctmcd::::res://icon.svg

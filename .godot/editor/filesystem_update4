@@ -1,0 +1,6 @@
+res://scenes/main/main.tscn
+res://scenes/test/test.tscn
+res://scenes/test/vehicle.tscn
+res://scenes/test/vehicle.gd
+res://scenes/main/main.gd
+res://testing.gd

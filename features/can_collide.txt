@@ -1,0 +1,7 @@
+# function called once the application is notified of a
+# collision. In a 2D environment, the area is passed by
+# signals such as area_entered. To know what object we
+# are colliding with, we call area.who_are_you() and this
+# function will provide both the id and the type of object.
+func who_are_you()->Array: create
+	return [data.id,data.type]	# array identifying the object

@@ -1,0 +1,11 @@
+func _init()->void: append
+	data.id = 0			# An id that can be assigned externally
+
+# Sets the ID for the object. the application decides what the 
+# id is for and if it is unique 
+func set_id(id)->void: create
+	data.id = id
+
+# returns the object's id
+func get_id()->int: create
+	return data.id

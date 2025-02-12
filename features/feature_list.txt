@@ -1,0 +1,10 @@
+has_id [adds an id to the data - requires none]
+has_type [adds a type - req none]
+has_position [exists at x,y - req a base class with position Vector2 property]
+can_collide [can identify self during a collision -  req has_id & has_type]
+can_move [object can move and stop - req has_position]
+is_scalable [scalable both in time and distance - req none]
+move_scaled [moves using scale - req has_position, is_scalable & can_move
+has_waypoints [can move to waypoints - req can_move!]
+can_damage [object can incur damage and be repaired - req none]
+can_be_saved [object can be saved and restored - req none]
